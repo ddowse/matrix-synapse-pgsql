@@ -1,0 +1,48 @@
+33c33
+< pid_file: /root/homeserver.pid
+---
+> pid_file: /var/run/matrix-synapse/homeserver.pid
+781,792d780
+< #database:
+< #  name: psycopg2
+< #  args:
+< #    user: synapse_user
+< #    password: secretpassword
+< #    database: synapse
+< #    host: localhost
+< #    cp_min: 5
+< #    cp_max: 10
+< #
+< # For more information on using Synapse with Postgres, see `docs/postgres.md`.
+< #
+794c782
+<   name: sqlite3
+---
+>   name: psycopg2
+796c784,789
+<     database: /root/homeserver.db
+---
+>     user: synapse_user
+>     password: ${PASSWORD}
+>     database: synapse
+>     host: localhost
+>     cp_min: 5
+>     cp_max: 10
+797a791,796
+> # For more information on using Synapse with Postgres, see `docs/postgres.md`.
+> #
+> #database:
+> #  name: sqlite3
+> #  args:
+> #    database: /usr/local/etc/matrix-synapse/homeserver.db
+798a798
+> 
+924c924
+< media_store_path: "/root/media_store"
+---
+> media_store_path: "/var/spool/matrix-synapse/media_store"
+2897c2897
+< # vim:ft=yaml
+\ No newline at end of file
+---
+> # vim:ft=yaml
