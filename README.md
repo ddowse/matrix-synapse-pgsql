@@ -85,7 +85,9 @@ User: `synapse_user`
 
 One how to proceed after a succesful deploy of this container visit the [Synapse docs](https://github.com/matrix-org/synapse/blob/develop/docs/admin_api/user_admin_api.md)
 
-Hint: `register_new_matrix_user -u <User> -p <Passphrase> -a -c /usr/local/etc/matrix-synapse/homeserver.yaml http://localhost:8008` 
+Hint:  
+
+`register_new_matrix_user -u user -p password -a -c /usr/local/etc/matrix-synapse/homeserver.yaml http://localhost:8008` 
 
 ---
 
