@@ -38,7 +38,7 @@ bastille template matrix-synapse-pgsql ddowse/matrix-synapse \
 ```
 
 4. This will install the "Basic Package Stack" as shown below.
-   - Then creates a Let's Encrypt account with the supplied `EMail` address.
+   - Then creates a Let's Encrypt account with the supplied `EMAIL` address.
    - acme.sh will try to issue a Certficate for the supplied `DOMAIN`
    - Staring postgresql
    - Setup postgresql
