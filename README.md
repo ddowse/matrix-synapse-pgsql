@@ -14,11 +14,10 @@ By using this template you confirm that you understand the risks of running a (m
 1. Create container
   
 For database/postgres12-server the next 2 lines are mandatory.   
-Replace `matrix-synapse` with your name for the container. 
 
 ```bash
-bastille config matrix-synapse set sysvmsg=new
-bastille config matrix-synapse set sysvshm=new
+bastille config TARGET set sysvmsg=new
+bastille config TARGET set sysvshm=new
 ```
 
 2. Bootstrap this template
@@ -30,7 +29,7 @@ bastille bootstrap https://github.com/ddowse/matrix-synapse-pgsql
 3. Apply this template with your argument values
 
 ```bash
-bastille template matrix-synapse-pgsql ddowse/matrix-synapse \
+bastille template TARGET ddowse/matrix-synapse \
 --arg EMAIL=valid@email.address \
 --arg DOMAIN=FQDN \
 --arg PASSWORD=DB_PASS
