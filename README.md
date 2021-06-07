@@ -72,7 +72,7 @@ The follwing arguments are used.
 
 `EMAIL` for acme.sh account   
 `DOMAIN` is the FQDN for your synapse instance  
-`PASSWORD` is for the databaseuser, lthough local users can login to postgresql without a password. Edit pg_hba.conf to change this.   
+`PASSWORD` is for the databaseuser, although local users can login without a password. Edit pg_hba.conf to change this.   
 `synapse` is the dbname   
 `synapse_user`is the dbuser
 
