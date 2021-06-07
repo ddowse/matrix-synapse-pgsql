@@ -52,7 +52,7 @@ bastille bootstrap https://github.com/ddowse/matrix-synapse-pgsql
 ## Bootstrap
 
 ```bash
-bastille template matrix-synapse ddowse/matrix-synapse \
+bastille template matrix-synapse-pgsql ddowse/matrix-synapse \
 --arg EMAIL=valid@email.address \
 --arg DOMAIN=FQDN \
 --arg PASSWORD=DB_PASS
@@ -66,4 +66,4 @@ Hint: `register_new_matrix_user -u <User> -p <Passphrase> -a -c /usr/local/etc/m
 
 ## Issues
 
-Report template issues on github if it's about general usage of BastilleBSD go to the [docs](https://bastille.readthedocs.io/en/latest/) or join the [Telegram](https://t.me/BastilleBSD) for any questions. 
+Report template issues on github if it's about general usage of BastilleBSD go to the [docs](https://bastille.readthedocs.io/en/latest/) or join the [Telegram](https://t.me/BastilleBSD) Group for any questions. 
