@@ -5,7 +5,7 @@ Bootstraps a Matrix Synapse Server with PostgreSQL in one container (jail) with 
 
 # DISCLAIMER
 
-Read [synapse](https://github.com/matrix-org/synapse/tree/master/docs) to edit the configuration to your exact needs. 
+Read [synapse](https://github.com/matrix-org/synapse/tree/master/docs) to edit the configuration to your exact needs afterwards. 
 
 By using this template you confirm that you understand the risks of running a (maybe) public accessible service.
 
