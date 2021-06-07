@@ -62,6 +62,8 @@ bastille template matrix-synapse ddowse/matrix-synapse \
 
 One how to proceed after a succesful deploy of this container visit the [Synapse docs](https://github.com/matrix-org/synapse/blob/develop/docs/admin_api/user_admin_api.md)
 
+Hint: `register_new_matrix_user -u <User> -p <Passphrase> -a -c /usr/local/etc/matrix-synapse/homeserver.yaml http://localhost:8008` 
+
 ## Issues
 
 Report template issues on github if it's about general usage of BastilleBSD go to the [docs](https://bastille.readthedocs.io/en/latest/) or join the [Telegram](https://t.me/BastilleBSD) for any questions. 
