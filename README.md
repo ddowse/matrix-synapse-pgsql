@@ -62,7 +62,7 @@ security/acme.sh
 
 ---
 
-## Defaults
+## Defaults & Arguments
 
 acme.sh will listen in standalone mode on IPv6 Address only and will use Let's Encrypt as CA.    
 You need to edit `Bastillefile` to change this if you want to use *old* IPv4. 
@@ -72,12 +72,10 @@ The follwing arguments are used.
 
 `EMAIL` for acme.sh account   
 `DOMAIN` is the FQDN for your synapse instance  
-`PASSWORD` is for the databaseuser 
+`PASSWORD` is for the databaseuser, lthough local users can login to postgresql without a password. Edit pg_hba.conf to change this.   
+`synapse` is the dbname   
+`synapse_user`is the dbuser
 
-Database: `synapse`   
-User: `synapse_user`
-
-`synapse_user` on db `synapse` although local users can login without a password. Edit pg_hba.conf to change this. 
 
 ---
 
