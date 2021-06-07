@@ -1,5 +1,5 @@
 # matrix-synapse-pgsql
-Bootstraps a Matrix Synapse Server with PostgreSQL in one container (jail) with [BastilleBSD](https://bastillebsd.org/) ready to use.
+Bootstraps a Matrix Synapse Server with PostgreSQL and Nginx Reverse Proxy including TLS certificate in one container (jail) with [BastilleBSD](https://bastillebsd.org/) ready to use.   
 
 ---
 
@@ -22,7 +22,6 @@ bastille config matrix-synapse set sysvshm=new
 ```
 
 2. Bootstrap this template
-
 
 ```bash
 bastille bootstrap https://github.com/ddowse/matrix-synapse-pgsql
@@ -56,13 +55,16 @@ bastille template matrix-synapse-pgsql ddowse/matrix-synapse \
 
 5. Your Synapse Server is now available to further tweaking and reachable over SSL/TLS on `DOMAIN`. 
 
+---
 
 ## Basic Package Stack
 
 www/nginx   
 database/postgresql12-server   
 net-im/py-matrix-synapse   
-security/acme.sh   
+security/acme.sh  
+
+---
 
 ## Defaults
 
@@ -81,12 +83,15 @@ User: `synapse_user`
 
 `synapse_user` on db `synapse` although local users can login without a password. Edit pg_hba.conf to change this. 
 
+---
 
 ## Synapse
 
 One how to proceed after a succesful deploy of this container visit the [Synapse docs](https://github.com/matrix-org/synapse/blob/develop/docs/admin_api/user_admin_api.md)
 
 Hint: `register_new_matrix_user -u <User> -p <Passphrase> -a -c /usr/local/etc/matrix-synapse/homeserver.yaml http://localhost:8008` 
+
+---
 
 ## Issues
 
