@@ -1,11 +1,61 @@
 # matrix-synapse-pgsql
-Bootstraps a Matrix Synapse Server with PostgreSQL in one container (jail) with [BastilleBSD](https://bastillebsd.org/) ready to use. 
+Bootstraps a Matrix Synapse Server with PostgreSQL in one container (jail) with [BastilleBSD](https://bastillebsd.org/) ready to use.
+
+---
 
 # DISCLAIMER
 
 Read [synapse](https://github.com/matrix-org/synapse/tree/master/docs) to edit the configuration to your exact needs. 
 
 By using this template you confirm that you understand the risks of running a (maybe) public accessible service.
+
+---
+
+1. Create container
+  
+For database/postgres12-server the next 2 lines are mandatory.   
+Replace `matrix-synapse` with your name for the container. 
+
+```bash
+bastille config matrix-synapse set sysvmsg=new
+bastille config matrix-synapse set sysvshm=new
+```
+
+2. Bootstrap this template
+
+
+```bash
+bastille bootstrap https://github.com/ddowse/matrix-synapse-pgsql
+```
+
+3. Apply this template with your argument values
+
+```bash
+bastille template matrix-synapse-pgsql ddowse/matrix-synapse \
+--arg EMAIL=valid@email.address \
+--arg DOMAIN=FQDN \
+--arg PASSWORD=DB_PASS
+```
+
+4. This will install the "Basic Package Stack" as shown below.
+   - Then creates a Let's Encrypt account with the supplied `EMail` address.
+   - acme.sh will try to issue a Certficate for the supplied `DOMAIN`
+   - Staring postgresql
+   - Setup postgresql
+   - Create dbuser `synapse_user` with supplied `PASSWORD`
+   - Create Datebase `synapse`
+   - Generates default configuration for Synapse for the supplied `DOMAIN`
+   - bastille will copy the nginx.conf 
+   - bastille will Render the configuration for nginx.conf with SSL Certficate
+   - bastille will copy the patch directory
+   - bastille will Render the homeserver.yaml patch
+   - bastille will apply the patch to homeserver.yaml
+   - Adding a Cronjob to renew the Certificate
+   - Starting nginx
+   - Starting synapse
+
+5. Your Synapse Server is now available to further tweaking and reachable over SSL/TLS on `DOMAIN`. 
+
 
 ## Basic Package Stack
 
@@ -22,41 +72,15 @@ Then maybe RDR Rules and NAT may apply to your setup.
 
 The follwing arguments are used. 
 
-EMAIL for acme.sh account
-DOMAIN is the FQDN for your synapse instance
+`EMAIL` for acme.sh account   
+`DOMAIN` is the FQDN for your synapse instance  
+`PASSWORD` is for the databaseuser 
 
-PASSWORD is for the databaseuser `synapse_user` on db `synapse` although local users can login without a password.   
-Edit pg_hba.conf to change this. 
-
-Database: `synapse` 
+Database: `synapse`   
 User: `synapse_user`
 
-## DNS
+`synapse_user` on db `synapse` although local users can login without a password. Edit pg_hba.conf to change this. 
 
-Do not forget to add a AAAA Record to your Zone for the (Sub) Domain. 
-
-## Basic
-
-Create a (vnet) container (jail) with `bastille` as usual. For database/postgres12-server the next 2 lines are mandatory.   
-Replace `matrix-synapse` with your name for the container. 
-
-```bash
-bastille config matrix-synapse set sysvmsg=new
-bastille config matrix-synapse set sysvshm=new
-```
-
-```bash
-bastille bootstrap https://github.com/ddowse/matrix-synapse-pgsql
-```
-
-## Bootstrap
-
-```bash
-bastille template matrix-synapse-pgsql ddowse/matrix-synapse \
---arg EMAIL=valid@email.address \
---arg DOMAIN=FQDN \
---arg PASSWORD=DB_PASS
-```
 
 ## Synapse
 
