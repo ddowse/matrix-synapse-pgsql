@@ -1,5 +1,5 @@
 # matrix-synapse-pgsql
-Bootstraps a Matrix Synapse Server with PostgreSQL in one container (jail) with [BastilleBSD](https://bastillebsd.org/)  
+Bootstraps a Matrix Synapse Server with PostgreSQL in one container (jail) with [BastilleBSD](https://bastillebsd.org/) ready to use. 
 
 # DISCLAIMER
 
@@ -7,7 +7,7 @@ Read [synapse](https://github.com/matrix-org/synapse/tree/master/docs) to edit t
 
 By using this template you confirm that you understand the risks of running a (maybe) public accessible service.
 
-## Basic Packages
+## Basic Package Stack
 
 www/nginx   
 database/postgresql12-server   
