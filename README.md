@@ -29,7 +29,7 @@ bastille bootstrap https://github.com/ddowse/matrix-synapse-pgsql
 3. Apply this template with your argument values
 
 ```bash
-bastille template TARGET ddowse/matrix-synapse --arg EMAIL=le@example.org --arg DOMAIN=FQDN --arg PASSWORD=DB_PASS
+bastille template TARGET ddowse/matrix-synapse-pgsql --arg EMAIL=le@example.org --arg DOMAIN=FQDN --arg PASSWORD=DB_PASS
 ```
 
 4. This will install the "Basic Package Stack" as shown below.
