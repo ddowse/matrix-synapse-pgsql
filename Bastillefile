@@ -8,8 +8,8 @@ ARG PASSWORD
 
 PKG acme.sh nginx postgresql13-server py38-matrix-synapse 
 
-#CMD acme.sh --register-account -m ${EMAIL} --server letsencrypt
-#CMD acme.sh --issue --standalone -d ${DOMAIN} --listen-v4
+CMD acme.sh --register-account -m ${EMAIL} --server letsencrypt
+CMD acme.sh --issue --standalone -d ${DOMAIN} --listen-v4
 #CMD acme.sh --issue --standalone -d ${DOMAIN} --listen-v6
 
 
