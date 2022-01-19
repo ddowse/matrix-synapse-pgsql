@@ -12,12 +12,10 @@ By using this template you confirm that you understand the risks of running a (m
 ---
 
 1. Create container
-  
-For database/postgres12-server the next 2 lines are mandatory.   
 
 ```bash
-bastille config TARGET set sysvmsg=new
-bastille config TARGET set sysvshm=new
+# This is just an example!
+bastille create matrix 13.0-RELEASE 127.0.0.100 
 ```
 
 2. Bootstrap this template

@@ -1,12 +1,17 @@
+CONFIG set sysvshm=new
+CONFIG set sysvmsg=new
+RESTART
+
 ARG EMAIL
 ARG DOMAIN
 ARG PASSWORD
 
-PKG acme.sh nginx postgresql12-server py37-matrix-synapse 
+PKG acme.sh nginx postgresql13-server py38-matrix-synapse 
 
-CMD acme.sh --register-account -m ${EMAIL} --server letsencrypt
+#CMD acme.sh --register-account -m ${EMAIL} --server letsencrypt
 #CMD acme.sh --issue --standalone -d ${DOMAIN} --listen-v4
-CMD acme.sh --issue --standalone -d ${DOMAIN} --listen-v6
+#CMD acme.sh --issue --standalone -d ${DOMAIN} --listen-v6
+
 
 SYSRC nginx_enable="YES"
 
@@ -23,7 +28,7 @@ SERVICE postgresql start
 CMD (psql -a -U postgres -c "CREATE ROLE synapse_user WITH LOGIN PASSWORD '${PASSWORD}';")
 CMD (psql -a -U postgres -c "CREATE DATABASE synapse OWNER=synapse_user;")
 
-CMD (/usr/local/bin/python3.7 -B -m synapse.app.homeserver -c /usr/local/etc/matrix-synapse/homeserver.yaml --generate-config -H ${DOMAIN} --report-stats no)
+CMD (/usr/local/bin/python3.8 -B -m synapse.app.homeserver -c /usr/local/etc/matrix-synapse/homeserver.yaml --generate-config -H ${DOMAIN} --report-stats no)
 CMD install -d -o synapse -g wheel /var/spool/matrix-synapse/media_store
 
 CP usr /
