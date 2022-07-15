@@ -6,7 +6,7 @@ ARG EMAIL
 ARG DOMAIN
 ARG PASSWORD
 
-PKG acme.sh nginx postgresql13-server py38-matrix-synapse 
+PKG acme.sh nginx postgresql13-server net-im/py-matrix-synapse 
 
 CMD acme.sh --register-account -m ${EMAIL} --server letsencrypt
 CMD acme.sh --issue --standalone -d ${DOMAIN} --listen-v4
